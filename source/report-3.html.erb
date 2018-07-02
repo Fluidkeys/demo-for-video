@@ -1,0 +1,115 @@
+<h4>Mali O'Quinn</h4>
+
+<p>mali@flextech.net</p>
+
+<table class="table">
+  <tr>
+    <td width="20%"><i class="fas fa-key"></i> Active</td>
+    <td width="25%">4096R/56B487B7</td>
+    <td width="30%"class="text-danger">Expires: 2021-01-25 <i class="fas fa-exclamation-triangle"></i></td>
+    <td width="25%"><a href="#" class="btn btn-sm btn-light" id='view-test-button' data-pressed='false'><i class="fas fa-angle-down"></i> View test results</a></td>
+  </tr>
+  <tr id="test-results">
+    <td colspan=4>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td><a href="https://riseup.net/en/security/message-security/openpgp/best-practices/#make-sure-your-key-is-openpgpv4">Key uses OpenPGP version 4 format</a></td>
+            <td class="text-success"><i class="fa fa-check"></i> OK</td>
+          </tr>
+          <tr>
+            <td><a href="https://infosec.mozilla.org/guidelines/key_management.html#acceptable---generally-valid-for-up-2-years">Primary key uses acceptable encryption strength</a></td>
+            <td class="text-success"><i class="fa fa-check"></i> OK</td>
+          </tr>
+          <tr>
+            <td><a href="https://infosec.mozilla.org/guidelines/key_management.html#recommended---generally-valid-for-up-to-10-years-default">Primary key uses recommended encryption strength</a></td>
+            <td class="text-success"><i class="fa fa-check"></i> OK</td>
+          </tr>
+          <tr>
+            <td><a href="https://riseup.net/en/security/message-security/openpgp/best-practices/#use-an-expiration-date-less-than-two-years">Primary key expires within 2 years from now</a></td>
+            <td class="text-danger"><i class="fa fa-times"></i> FAIL</td>
+          </tr>
+          <tr>
+            <td>Primary key is within its expiry date</td>
+            <td class="text-success"><i class="fa fa-check"></i> OK</td>
+          </tr>
+          <tr>
+            <td><a href="https://riseup.net/en/security/message-security/openpgp/best-practices/#have-a-separate-subkey-for-signing">There&#39;s a valid, in-date subkey that can be used for encryption</a></td>
+            <td class="text-success"><i class="fa fa-check"></i> OK</td>
+          </tr>
+          <tr>
+            <td><a href="https://riseup.net/en/security/message-security/openpgp/best-practices/#have-a-separate-subkey-for-signing">There&#39;s a valid, in-date subkey that can be used for signing</a></td>
+            <td class="text-danger"><i class="fa fa-times"></i> FAIL</td>
+          </tr>
+          <tr>
+            <td>The key has a valid, in-date user identifier (UID)</td>
+            <td class="text-success"><i class="fa fa-check"></i> OK</td>
+          </tr>
+          <tr>
+            <td><a href="https://riseup.net/en/security/message-security/openpgp/best-practices/#stated-digest-algorithm-preferences-must-include-at-least-one-member-of-the-sha-2-family-at-a-higher-priority-than-both-md5-and-sha1">Digest preferences should specify strong algorithms first</a></td>
+            <td class="text-success"><i class="fa fa-check"></i> OK</td>
+          </tr>
+          <tr>
+            <td>Cipher preferences should specify strong algorithms first</td>
+            <td class="text-success"><i class="fa fa-check"></i> OK</td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+
+
+  <tr class='text-muted'>
+    <td><i class="fas fa-key"></i> Revoked</td>
+    <td>4096R/2C6CF8B3</td>
+    <td>Expires: 2018-01-25</td>
+    <td></td>
+  </tr>
+  <tr class='text-muted'>
+    <td><i class="fas fa-key"></i> Revoked</td>
+    <td>4096R/BD21F3C3</td>
+    <td>Expires: 2017-10-19</td>
+    <td></td>
+  </tr>
+  <tr class='text-secondary'>
+    <td><i class="fas fa-key"></i> Expired</td>
+    <td>4096R/61C308AF</td>
+    <td>Expires: 2016-10-14</td>
+    <td></td>
+  </tr>
+  <tr class='text-muted'>
+    <td><i class="fas fa-key"></i> Revoked</td>
+    <td>4096R/15AE6DB8</td>
+    <td>Expires: 2016-02-19</td>
+    <td></td>
+  </tr>
+</table>
+
+<p>
+  Their active key expires in 3 years. We reckon this is a bit long.
+</p>
+
+<p>
+  PGP for teams would fix this by setting setting a shorter expiry date, and automatically refreshing their key as long as they’re still at Flextech.
+</p>
+
+<% content_for :scripts do %>
+
+<script>
+
+  $('#test-results').hide();
+
+  $('#view-test-button').click(function(){
+    $("#test-results").toggle();
+    if ($(this).data('pressed') == true) {
+      $(this).data('pressed', false);
+      $(this).html('<i class="fas fa-angle-down"></i> View test results</a>');
+    } else {
+      $(this).data('pressed', true);
+      $(this).html('<i class="fas fa-angle-up"></i> Hide test results</a>');
+    }
+  });
+
+</script>
+
+<% end %>
