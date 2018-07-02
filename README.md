@@ -1,5 +1,7 @@
 # Fluidkeys demo for video
 
+This static site creates a demo to record for how Fluidkeys could work for a fictional company, Flextech.
+
 ## How to use this
 
 ### Middleman
